@@ -1,0 +1,124 @@
+.category-section {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px solid #d1d5db;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: black;
+    background: linear-gradient(to right, #a33f3f, #6e9cdb);
+    padding: 8px 20px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.icon-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-around;
+}
+
+.icon-item {
+    text-align: center;
+    width: 90px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #ffffff;
+}
+
+.icon-item img {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.icon-item p {
+    margin-top: 8px;
+    font-size: 0.85em;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect */
+.icon-item:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: #f0f4ff;
+}
+
+.icon-item:hover img {
+    transform: scale(1.2);
+    filter: brightness(1.2) contrast(1.1);
+    /* Makes the image a bit brighter */
+}
+
+.icon-item:hover p {
+    color: #6e9cdb;
+    font-weight: bold;
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 768px) {
+    .icon-container {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .icon-item {
+        width: 70px;
+    }
+
+    .icon-item img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .icon-item p {
+        font-size: 0.75em;
+    }
+}
+
+/* Mengatur gaya dasar untuk tautan dalam daftar */
+.list-unstyled li a {
+    text-decoration: none; /* Menghilangkan garis bawah */
+    color: #333; /* Warna teks default */
+}
+
+/* Gaya hover untuk tautan */
+.list-unstyled li a:hover {
+    color: #007bff; /* Mengubah warna teks saat di-hover */
+}
+
+.footer-icon {
+    width: 100%; /* Ukuran penuh kontainer */
+    max-width: 180px; /* Batas maksimal ukuran gambar */
+    height: auto;
+    object-fit: contain; /* Pastikan gambar tetap proporsional */
+}
+
+.social-icon {
+    width: 30px; /* Ukuran lebar yang lebih kecil */
+    height: 30px; /* Ukuran tinggi yang lebih kecil */
+    margin: 0 5px; /* Jarak antar ikon */
+    transition: transform 0.3s ease; /* Efek transisi saat di-hover */
+}
+
+.social-icon:hover {
+    transform: scale(1.1); /* Efek memperbesar sedikit saat di-hover */
+}
+
+
+.footer-icon-pengiriman {
+    width: 100%; /* Ukuran penuh kontainer */
+    max-width: 175px; /* Batas maksimal ukuran gambar */
+    height: auto;
+    object-fit: contain; /* Pastikan gambar tetap proporsional */
+}

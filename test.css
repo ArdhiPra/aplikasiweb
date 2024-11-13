@@ -1,0 +1,19 @@
+.footer-title {
+    font-weight: bold;
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-icon, .footer-icon-pengiriman {
+    width: 60px;
+    height: auto;
+}
+
+.download-icon {
+    width: 120px;
+    height: auto;
+    margin: 0 8px;
+}
