@@ -91,3 +91,15 @@ body{
     margin-bottom: 10px;
     color: red;
 }
+
+/* Styling untuk link Forgot Password */
+.field .input a {
+    font-size: 0.9em;
+    color: #6c63ff; /* Warna ungu */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.field .input a:hover {
+    color: #4a4ae2; /* Warna ungu lebih gelap saat hover */
+}

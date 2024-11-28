@@ -39,13 +39,13 @@
         //pesan 
             if (mysqli_query($con, $insert_query)) {
                 echo "<div class='message'>
-                       <p>Registration successful</p>
-                     </div> <br>";
+                        <p>Registration successful</p>
+                    </div> <br>";
                 echo "<a href='index.php'><button class='btn'>Login Now</button></a>";
             } else {
                 echo "<div class='message'>
-                       <p>Error: " . mysqli_error($con) . "</p>
-                     </div> <br>";
+                        <p>Error: " . mysqli_error($con) . "</p>
+                    </div> <br>";
             }
         }
     } else {

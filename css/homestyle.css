@@ -1,3 +1,4 @@
+
 .category-section {
     background-color: #f8f9fa;
     padding: 20px;
@@ -9,13 +10,14 @@
 .category-title {
     font-weight: bold;
     font-size: 1.2em;
-    color: black;
+    color: white;
     background: linear-gradient(to right, #a33f3f, #6e9cdb);
     padding: 8px 20px;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
     margin-bottom: 15px;
     display: inline-block;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
 .icon-container {
@@ -26,12 +28,25 @@
 }
 
 .icon-item {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 90px;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     padding: 10px;
     border-radius: 15px;
     background-color: #ffffff;
+    text-align: center;
+}
+
+.icon-item a {
+    text-decoration: none;
+    color: inherit; 
+}
+
+.icon-item a:hover {
+    text-decoration: none; 
 }
 
 .icon-item img {
@@ -45,7 +60,10 @@
     font-size: 0.85em;
     color: #555;
     transition: color 0.3s ease;
+    text-align: center; /* Pastikan teks tetap di tengah */
 }
+
+
 
 /* Hover effect */
 .icon-item:hover {
@@ -84,41 +102,55 @@
     .icon-item p {
         font-size: 0.75em;
     }
+
+    .footer-title {
+        font-size: 10px;
+    }
 }
 
-/* Mengatur gaya dasar untuk tautan dalam daftar */
+
 .list-unstyled li a {
-    text-decoration: none; /* Menghilangkan garis bawah */
-    color: #333; /* Warna teks default */
+    text-decoration: none; 
+    color: #333; 
 }
 
 /* Gaya hover untuk tautan */
 .list-unstyled li a:hover {
-    color: #007bff; /* Mengubah warna teks saat di-hover */
+    color: #007bff; 
 }
 
+.footer-title {
+    font-family: 'Arial', sans-serif; 
+    font-size: 19px; 
+    font-weight: bold; 
+    color: #333; 
+    text-transform: uppercase; 
+    margin-bottom: 10px; 
+}
+
+
 .footer-icon {
-    width: 100%; /* Ukuran penuh kontainer */
-    max-width: 180px; /* Batas maksimal ukuran gambar */
+    width: 100%; 
+    max-width: 180px; 
     height: auto;
-    object-fit: contain; /* Pastikan gambar tetap proporsional */
+    object-fit: contain; 
 }
 
 .social-icon {
-    width: 30px; /* Ukuran lebar yang lebih kecil */
-    height: 30px; /* Ukuran tinggi yang lebih kecil */
-    margin: 0 5px; /* Jarak antar ikon */
-    transition: transform 0.3s ease; /* Efek transisi saat di-hover */
+    width: 30px; 
+    height: 30px; 
+    margin: 0 5px; 
+    transition: transform 0.3s ease; 
 }
 
 .social-icon:hover {
-    transform: scale(1.1); /* Efek memperbesar sedikit saat di-hover */
+    transform: scale(1.1); 
 }
 
 
 .footer-icon-pengiriman {
-    width: 100%; /* Ukuran penuh kontainer */
-    max-width: 175px; /* Batas maksimal ukuran gambar */
+    width: 100%; 
+    max-width: 175px; 
     height: auto;
-    object-fit: contain; /* Pastikan gambar tetap proporsional */
+    object-fit: contain; 
 }

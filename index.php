@@ -53,6 +53,10 @@
                     <div class="field input">
                         <label for="password">Password</label>
                         <input type="password" name="password" id="password" required>
+                            <!-- Lupa Password -->
+                            <div style="text-align: right; margin-top: 5px;">
+                                <a href="forgot-password.php" style="font-size: 0.9em; text-decoration: none; color: #6c63ff;">Forgot Password?</a>
+                            </div>
                     </div>
                     <!-- Submit -->
                     <div class="field">
