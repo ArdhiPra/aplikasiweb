@@ -82,8 +82,8 @@
             margin-left: 30px;
             cursor: pointer;
         }
-    </style>
-</head>
+    </style> 
+    </head>
 <body>
 
     <!-- Top Navbar -->

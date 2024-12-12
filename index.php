@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
+    <link rel="icon" href="images/yplogo.png"> 
     <title>Login</title>
 </head>
 <body>
@@ -30,7 +31,8 @@
                         $_SESSION['valid'] = $row['email'];
                         $_SESSION['username'] = $row['username'];
                         $_SESSION['telepon'] = $row['telepon'];
-                        $_SESSION['id'] = $row['id'];
+                        $_SESSION['id'] = $row['id']; 
+                        $_SESSION['user_id'] = $row['id']; // Simpan user_id ke sesi
                         header("Location: home.php");
                         exit();
                     } else {
@@ -42,28 +44,32 @@
                 } else {
                 ?>
 
-                <header>Login</header>
+            <header>Login</header>
                 <form action="" method="post">
                     <!-- Email -->
                     <div class="field input">
                         <label for="email">Email</label>
-                        <input type="text" name="email" id="email" required>
+                        <input type="email" name="email" id="email" placeholder="Enter your email" required autocomplete="email">
                     </div>
+
                     <!-- Password -->
                     <div class="field input">
                         <label for="password">Password</label>
-                        <input type="password" name="password" id="password" required>
-                            <!-- Lupa Password -->
-                            <div style="text-align: right; margin-top: 5px;">
-                                <a href="forgot-password.php" style="font-size: 0.9em; text-decoration: none; color: #6c63ff;">Forgot Password?</a>
-                            </div>
+                        <input type="password" name="password" id="password" placeholder="Enter your password" required autocomplete="current-password">
+
+                        <!-- Lupa Password -->
+                        <div style="text-align: right; margin-top: 5px;">
+                            <a href="forgot-password.php" style="font-size: 0.9em; text-decoration: none; color: #6c63ff;">Forgot Password?</a>
+                        </div>
                     </div>
+
                     <!-- Submit -->
                     <div class="field">
                         <input type="submit" class="btn" name="submit" value="Login">
                     </div>
+
                     <div class="link">
-                        Don't have account? <a href="register.php">Sign Up</a>
+                        Don't have an account? <a href="register.php">Sign Up</a>
                     </div>
                 </form>
             </div>

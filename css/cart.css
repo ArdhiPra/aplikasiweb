@@ -1,0 +1,213 @@
+body {
+    font-family: Arial, sans-serif;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table th, table td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 10px;
+}
+.product-image {
+    width: 100px;
+}
+
+.order-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.order-summary {
+    flex: 1;
+    padding: 4%;
+}
+
+.order-summary h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.summary-details {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: 15px 0;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #000;
+}
+
+.btn-order-now {
+    background-color: red;
+    color: white;
+    border: none;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: center;
+    margin-left: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.btn-order-now:hover {
+    background-color: #cc0000;
+}
+
+
+.divider {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+}
+
+.order-button {
+    flex-shrink: 0;
+    padding: 2%;
+    text-align: center;
+    margin-top: 14%;
+}
+
+.checkout-button {
+    display: inline-block;
+    background-color: #ff0000;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.checkout-button:hover {
+    background-color: #cc0000;
+}
+
+
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 15px 0;
+}
+
+/* Styling for quantity controls */
+.quantity-controls {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px;
+    gap: 5px; /* Jarak antar elemen */
+}
+
+.quantity-controls button {
+    background: none;
+    border: none;
+    font-size: 20px; /* Memperbesar ukuran tombol */
+    font-weight: bold;
+    color: #000; /* Warna teks hitam */
+    cursor: pointer;
+    outline: none;
+    transition: color 0.2s ease, transform 0.1s ease;
+    width: 36px; /* Lebar tombol */
+    height: 36px; /* Tinggi tombol */
+}
+
+.quantity-controls button:hover {
+    color: #007bff; /* Warna biru saat hover */
+}
+
+.quantity-controls button:active {
+    transform: scale(0.9); /* Efek kecil saat tombol ditekan */
+}
+
+.quantity-controls span {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    min-width: 30px; /* Lebar minimum untuk konsistensi */
+}
+
+/* Styling tombol remove */
+.remove-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px; /* Ukuran ikon */
+    color: #000; /* Warna default ikon */
+    padding: 5px;
+    transition: color 0.2s ease, transform 0.1s ease;
+}
+
+.remove-button:hover {
+    color: #ff0000; /* Warna merah saat hover */
+    transform: scale(1.1); /* Sedikit membesar saat hover */
+}
+
+.remove-button:active {
+    transform: scale(0.9); /* Efek menekan saat ditekan */
+}
+
+/* General button styling */
+.button {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #dc3545; /* Warna merah */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #a71d2a; /* Warna merah lebih gelap */
+}
+
+.button:active {
+    background-color: #7c141e; /* Warna merah lebih gelap saat klik */
+}
+.checkout-button {
+    display: inline-block;
+    background-color: #f00;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.checkout-button:hover {
+    background-color: #c00;
+}

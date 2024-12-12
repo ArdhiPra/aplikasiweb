@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
-    <title>Register</title>
+    <link rel="icon" href="images/yplogo.png"> 
+    <title>Sign UP</title>
 </head>
 <body>
 
@@ -50,7 +51,7 @@
         }
     } else {
     ?>
-        <header>Register</header>
+        <header>Sign UP</header>
         <form action="" method="post">
             <!-- Email -->
             <div class="field input">
@@ -69,12 +70,12 @@
             </div>
             <!-- Telepon -->
             <div class="field input">
-                <label for="telepon">Telepon</label>
+                <label for="telepon">Phone</label>
                 <input type="text" name="telepon" id="telepon" autocomplete="off" required >
             </div>
             <!-- Submit -->
             <div class="field">
-                <input type="submit" class="btn" name="submit" value="Daftar">
+                <input type="submit" class="btn" name="submit" value="Sign Up">
             </div>
             <div class="link">
                 Already a member? <a href="index.php">Log in</a>

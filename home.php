@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yourpc.id</title>
     <!-- Bootstrap CSS -->
-     <!-- Fontawesome -->
+    <!-- Fontawesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/homestyle.css">
-    <link rel="icon" href="images/yplogo.png">
+    <link rel="icon" href="images/yplogo.png"> 
 </head>
 <body>
     <?php include 'navbar/homenavbar.php';
@@ -138,7 +138,7 @@
             <!-- Media Sosial Column -->
             <div class="col-6 col-md-3 mb-3">
                 <h5 class="footer-title">Media Sosial</h5>
-                <div class="d-flex">
+                <div class="d-flex mt-4">
                     <a href="https://www.instagram.com/dh_oh_eb/?utm_source=ig_web_button_share_sheet" target="_blank" class="me-2">
                         <img src="images/iglogo.png" alt="Instagram" class="social-icon">
                     </a>
@@ -167,7 +167,7 @@
         <!-- Bottom Row: Hak Cipta -->
         <div class="row mt-3">
             <div class="col text-center">
-                <p class="mt-2">&copy; 2024 SMAN 3 Denpasar. Developed by <a href="#">Ardhi Pra</a></p>
+                <p class="mt-2">&copy; Developed by Group 2<a href="#"></a></p>
             </div>
         </div>
     </div>

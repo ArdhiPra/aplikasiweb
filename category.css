@@ -58,22 +58,82 @@ body {
     padding: 20px;
 }
 
-/* Sidebar */
+/* Styling untuk sidebar */
 .sidebar {
-    width: 20%;
-    padding: 20px;
-    background-color: #f0f0f0;
-    border-radius: 8px;
+    background-color: #f9f9f9; /* Warna latar belakang */
+    border: 1px solid #ddd; /* Border tipis */
+    border-radius: 8px; /* Membuat sudut melengkung */
+    padding: 20px; /* Memberikan jarak di dalam */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan */
+    width: 100%; /* Responsif */
+    max-width: 300px; /* Lebar maksimal */
 }
-.sidebar h2 {
+
+/* Judul sidebar */
+.sidebar h1 {
+    font-size: 20px;
     font-weight: bold;
-    margin-bottom: 10px;
-    border-bottom: 2px solid black;
-    display: inline-block;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
 }
-.sidebar label {
+
+/* Styling untuk form */
+.sidebar form label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
     display: block;
-    margin: 10px 0;
+}
+
+/* Styling input */
+.sidebar form input[type="number"],
+.sidebar form input[type="text"] {
+    width: calc(100% - 10px);
+    padding: 8px 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Styling tombol Cari */
+.sidebar form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.sidebar form button:hover {
+    background-color: #0056b3;
+}
+
+/* Checkbox styling */
+.sidebar form input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2); /* Membuat checkbox lebih besar */
+}
+
+/* Spasi antar elemen */
+.sidebar form label,
+.sidebar form input,
+.sidebar form button {
+    margin-top: 10px;
+}
+
+/* Tambahkan responsif untuk perangkat kecil */
+@media screen and (max-width: 600px) {
+    .sidebar {
+        max-width: 100%;
+        padding: 15px;
+    }
 }
 
 /* Product section */
@@ -147,11 +207,12 @@ body {
     transform: scale(1.2); /* Efek zoom saat hover */
 }
 
-.alert-success {
-    background-color: #d4edda;
-    color: #155724;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #c3e6cb;
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #4caf50;
+    background-color: #dff0d8;
+    color: #3c763d;
     border-radius: 5px;
+    text-align: center;
 }
