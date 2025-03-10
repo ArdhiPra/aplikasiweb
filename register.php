@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
     <link rel="icon" href="images/yplogo.png"> 
-    <title>Sign UP</title>
+    <title>Daftar</title>
+    <!-- Tambahkan SweetAlert2 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
@@ -23,62 +25,78 @@
 
         $hashed_password = md5($password);
 
-        // check email
+        // Check email
         $verift_query = mysqli_query($con, "SELECT email FROM tbl_user WHERE email='$email'");
         
         if (mysqli_num_rows($verift_query) != 0) {
-            echo "<div class='massage'>
-                    <p>This email is already used, try another one</p>
-                </div> <br>";
-            echo "<a href='javascript:self.history.back()'><button class='btn'>Go back</button></a>";
+            echo "<script>
+                    Swal.fire({
+                        title: 'Email Sudah Terdaftar',
+                        text: 'Email ini sudah digunakan. Silakan gunakan email lain.',
+                        icon: 'error',
+                        confirmButtonText: 'Kembali'
+                    }).then(() => {
+                        window.history.back();
+                    });
+                </script>";
         } else {
-            
-            //add data
+            // Tambahkan data
             $insert_query = "INSERT INTO tbl_user (email, username, password, telepon) 
                             VALUES ('$email', '$username', '$hashed_password', '$telepon')";
 
-        //pesan 
+            // Pesan
             if (mysqli_query($con, $insert_query)) {
-                echo "<div class='message'>
-                        <p>Registration successful</p>
-                    </div> <br>";
-                echo "<a href='index.php'><button class='btn'>Login Now</button></a>";
+                echo "<script>
+                        Swal.fire({
+                            title: 'Registrasi Berhasil',
+                            text: 'Anda telah berhasil mendaftar. Silakan login.',
+                            icon: 'success',
+                            confirmButtonText: 'Login Sekarang'
+                        }).then(() => {
+                            window.location.href = 'index.php';
+                        });
+                    </script>";
             } else {
-                echo "<div class='message'>
-                        <p>Error: " . mysqli_error($con) . "</p>
-                    </div> <br>";
+                echo "<script>
+                        Swal.fire({
+                            title: 'Error',
+                            text: 'Terjadi kesalahan: " . mysqli_error($con) . "',
+                            icon: 'error',
+                            confirmButtonText: 'Coba Lagi'
+                        });
+                    </script>";
             }
         }
     } else {
     ?>
-        <header>Sign UP</header>
+        <header>Daftar</header>
         <form action="" method="post">
             <!-- Email -->
             <div class="field input">
                 <label for="email">Email</label>
-                <input type="text" name="email" id="email" autocomplete="off" required>
+                <input type="email" name="email" id="email" placeholder="Masukan email anda" autocomplete="off" required>
             </div>
             <!-- Username -->
             <div class="field input">
                 <label for="username">Username</label>
-                <input type="text" name="username" id="username" autocomplete="off" required>
+                <input type="text" name="username" id="username" placeholder="Masukan username anda" autocomplete="off" required>
             </div>
             <!-- Password -->
             <div class="field input">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" autocomplete="off" required>
+                <input type="password" name="password" id="password" placeholder="Masukan password anda" autocomplete="off" required>
             </div>
             <!-- Telepon -->
             <div class="field input">
-                <label for="telepon">Phone</label>
-                <input type="text" name="telepon" id="telepon" autocomplete="off" required >
+                <label for="telepon">Telepon</label>
+                <input type="text" name="telepon" id="telepon" placeholder="Masukan telepon anda" autocomplete="off" required >
             </div>
             <!-- Submit -->
             <div class="field">
-                <input type="submit" class="btn" name="submit" value="Sign Up">
+                <input type="submit" class="btn" name="submit" value="Daftarkan">
             </div>
             <div class="link">
-                Already a member? <a href="index.php">Log in</a>
+                Sudah memiliki akun? <a href="index.php">Log in</a>
             </div>
         </form>
     <?php } ?>

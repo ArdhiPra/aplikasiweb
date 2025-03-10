@@ -82,6 +82,10 @@ body{
     margin-bottom: 15px;
 }
 
+.link a {
+    text-decoration: none;
+}
+
 .massage{
     text-align: center;
     background: #f9edef;

@@ -7,13 +7,17 @@
     <link rel="stylesheet" href="category.css">
     <link rel="icon" href="images/yplogo.png"> 
     <script>
-        // Fungsi untuk menampilkan alert jika ada parameter 'success'
-        function showAlert() {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('success') && urlParams.get('success') === '1') {
-                alert("Added successfully");
-            }
+    // Fungsi untuk menampilkan alert jika ada parameter 'success'
+    function showAlert() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('success') && urlParams.get('success') === '1') {
+        Swal.fire({
+            title: "Berhasil ditambahkan!",
+            icon: "success",
+            draggable: true
+            });
         }
+    }
     </script>
 </head>
 <body onload="showAlert()">
@@ -25,16 +29,54 @@ include 'koneksi.php'; // File koneksi database
 ?>
 <div class="main-content">
     <div class="sidebar">
-        <h1>Product Filters</h1>
+        <h1>Filter Produk</h1>
         <form method="GET" action="cpu.php">
 
-            <!-- Checkbox Brand Processor -->
-            <label><input type="checkbox" name="brand_processor[]" value="Intel"> Intel</label><br>
-            <label><input type="checkbox" name="brand_processor[]" value="AMD"> AMD</label><br>
-
-            <!-- Dropdown Generasi Processor -->
+            <!-- Dropdown Brand Processor -->
             <?php
-            // Ambil nilai enum dari database untuk filter_barang
+            // Ambil nilai enum dari kolom tipe_barang
+            $sql_enum_tipe = "SHOW COLUMNS FROM tbl_barang LIKE 'tipe_barang'";
+            $result_enum_tipe = mysqli_query($con, $sql_enum_tipe);
+            $values_tipe = [];
+            if ($result_enum_tipe) {
+                $row_enum_tipe = mysqli_fetch_assoc($result_enum_tipe);
+                $enum_values_tipe = $row_enum_tipe['Type']; // Hasilnya: enum('Intel', 'AMD', ...)
+                preg_match("/^enum\((.*)\)$/", $enum_values_tipe, $matches_tipe);
+                $values_tipe = str_getcsv($matches_tipe[1], ',', "'");
+            }
+            ?>
+            <label for="tipe_barang">Tipe Barang:</label>
+            <select name="tipe_barang" id="tipe_barang">
+                <option value="">Pilih</option>
+                <?php foreach ($values_tipe as $value_tipe): ?>
+                    <option value="<?= htmlspecialchars($value_tipe) ?>" <?= (isset($_GET['tipe_barang']) && $_GET['tipe_barang'] == $value_tipe) ? 'selected' : '' ?>><?= htmlspecialchars($value_tipe) ?></option>
+                <?php endforeach; ?>
+            </select><br>
+
+            <!-- Dropdown Brand Name (brand_barang) -->
+            <?php
+            // Ambil nilai enum dari kolom brand_barang
+            $sql_enum_brand = "SHOW COLUMNS FROM tbl_barang LIKE 'brand_barang'";
+            $result_enum_brand = mysqli_query($con, $sql_enum_brand);
+            $values_brand = [];
+            if ($result_enum_brand) {
+                $row_enum_brand = mysqli_fetch_assoc($result_enum_brand);
+                $enum_values_brand = $row_enum_brand['Type']; // Hasilnya: enum('ASUS', 'MSI', ...)
+                preg_match("/^enum\((.*)\)$/", $enum_values_brand, $matches_brand);
+                $values_brand = str_getcsv($matches_brand[1], ',', "'");
+            }
+            ?>
+            <label for="brand_barang">Brand Barang:</label>
+            <select name="brand_barang" id="brand_barang">
+                <option value="">Pilih</option>
+                <?php foreach ($values_brand as $value_brand): ?>
+                    <option value="<?= htmlspecialchars($value_brand) ?>" <?= (isset($_GET['brand_barang']) && $_GET['brand_barang'] == $value_brand) ? 'selected' : '' ?>><?= htmlspecialchars($value_brand) ?></option>
+                <?php endforeach; ?>
+            </select><br>
+
+            <!-- Dropdown Processor Generation -->
+            <?php
+            // Ambil nilai enum dari kolom filter_barang
             $sql_enum = "SHOW COLUMNS FROM tbl_barang LIKE 'filter_barang'";
             $result_enum = mysqli_query($con, $sql_enum);
             $values = [];
@@ -45,51 +87,52 @@ include 'koneksi.php'; // File koneksi database
                 $values = str_getcsv($matches[1], ',', "'");
             }
             ?>
-            <label for="filter_barang">Processor Generation :</label>
+            <label for="filter_barang">Filter Barang:</label>
             <select name="filter_barang" id="filter_barang">
-                <option value="">All Generations</option>
+                <option value="">Pilih</option>
                 <?php foreach ($values as $value): ?>
-                    <option value="<?= htmlspecialchars($value) ?>"><?= htmlspecialchars($value) ?></option>
+                    <option value="<?= htmlspecialchars($value) ?>" <?= (isset($_GET['filter_barang']) && $_GET['filter_barang'] == $value) ? 'selected' : '' ?>><?= htmlspecialchars($value) ?></option>
                 <?php endforeach; ?>
             </select><br>
 
             <!-- Filter Harga -->
             <label for="min_price">Harga Minimum:</label>
-            <input type="number" name="min_price" id="min_price"><br>
-            
+            <input type="number" name="min_price" id="min_price" value="<?= isset($_GET['min_price']) ? htmlspecialchars($_GET['min_price']) : '' ?>"><br>
+
             <label for="max_price">Harga Maksimum:</label>
-            <input type="number" name="max_price" id="max_price"><br>
+            <input type="number" name="max_price" id="max_price" value="<?= isset($_GET['max_price']) ? htmlspecialchars($_GET['max_price']) : '' ?>"><br>
 
             <!-- Filter Kata Kunci -->
             <label for="search">Kata Kunci:</label>
-            <input type="text" name="search" id="search"><br>
-            
+            <input type="text" name="search" id="search" value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>"><br>
+
             <button type="submit">Cari</button>
         </form>
     </div>
+
 
     <div class="product-section">
         <div class="section-title">Best Seller</div>
 
         <?php
         // Mulai query dasar
-        $sql = "SELECT id_barang, nama_barang, harga_barang, jumlah_barang, kategori_barang, tipe_barang, brand_barang, filter_barang 
+        $sql = "SELECT id_barang, nama_barang, harga_barang, jumlah_barang, kategori_barang, tipe_barang, brand_barang, filter_barang, gambar_barang
                 FROM tbl_barang 
                 WHERE kategori_barang = 'Processor'";
 
         // Tambahkan kondisi filter jika ada input dari pengguna
         $conditions = [];
-        
+
         // Filter berdasarkan brand processor (tipe_barang)
-        if (isset($_GET['brand_processor']) && is_array($_GET['brand_processor'])) {
-            $brands = array_map(function ($brand) use ($con) {
-                return mysqli_real_escape_string($con, $brand);
-            }, $_GET['brand_processor']);
-            $brandConditions = [];
-            foreach ($brands as $brand) {
-                $brandConditions[] = "tipe_barang = '$brand'";
-            }
-            $conditions[] = '(' . implode(' OR ', $brandConditions) . ')';
+        if (!empty($_GET['tipe_barang'])) {
+            $tipe_barang = mysqli_real_escape_string($con, $_GET['tipe_barang']);
+            $conditions[] = "tipe_barang = '$tipe_barang'";
+        }
+
+        // Filter berdasarkan nama brand (brand_barang)
+        if (!empty($_GET['brand_barang'])) {
+            $brand_barang = mysqli_real_escape_string($con, $_GET['brand_barang']);
+            $conditions[] = "brand_barang = '$brand_barang'";
         }
 
         // Filter berdasarkan generasi processor (filter_barang)
@@ -135,20 +178,20 @@ include 'koneksi.php'; // File koneksi database
         if (mysqli_num_rows($result) > 0) {
             while ($product = mysqli_fetch_assoc($result)) {
                 echo '<div class="product-item">';
-                // Ganti dengan gambar default jika kolom gambar tidak ada di database
-                echo '<img src="images/default_product.png" alt="Product">';
+                echo '<img src="display_image.php?id=' . htmlspecialchars($product['id_barang']) . '" alt="Product Image" style="width: 150px; height: auto;">';
                 echo '<div class="product-info">';
                 echo '<p class="product-name">' . htmlspecialchars($product['nama_barang']) . '</p>';
-                echo '<p class="product-price">Rp' . number_format((float)str_replace(['Rp', '.'], '', $product['harga_barang']), 0, ',', '.') . '</p>';
+                echo '<p class="product-price">Rp' . number_format($product['harga_barang'], 0, ',', '.') . '</p>';
                 echo '</div>';
-
-                // Form untuk tombol keranjang
+            
+                // Tombol "Add to Cart" hanya dengan ikon Bootstrap
                 echo '<form method="POST" action="add-to-cart.php">';
+                echo '<input type="hidden" name="product_id" value="' . htmlspecialchars($product['id_barang']) . '">'; 
                 echo '<input type="hidden" name="product_name" value="' . htmlspecialchars($product['nama_barang']) . '">';
                 echo '<input type="hidden" name="product_price" value="' . htmlspecialchars($product['harga_barang']) . '">';
+                echo '<input type="hidden" name="product_image" value="' . htmlspecialchars($product['gambar_barang']) . '">';
                 echo '<button type="submit" class="add-to-cart"><i class="bi bi-cart3"></i></button>';
                 echo '</form>';
-
                 echo '</div>';
             }
         } else {
@@ -161,6 +204,6 @@ include 'koneksi.php'; // File koneksi database
         ?>
     </div>
 </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

@@ -10,8 +10,9 @@ table th, table td {
     text-align: center;
     padding: 10px;
 }
-.product-image {
-    width: 100px;
+
+button {
+    all: unset; /* Hapus semua gaya default */
 }
 
 .order-container {
@@ -210,4 +211,64 @@ hr {
 }
 .checkout-button:hover {
     background-color: #c00;
+}
+
+.qty-container {
+    display: flex;
+    align-items: center; /* Pusatkan elemen secara vertikal */
+    justify-content: center; /* Pusatkan elemen secara horizontal */
+    gap: 18px; /* Spasi antar tombol */
+}
+
+.qty-container span {
+    display: inline-block;
+    width: 20px; /* Lebar untuk menyesuaikan teks */
+    text-align: center; /* Pusatkan teks */
+    font-size: 16px; /* Ukuran font */
+    font-weight: bold; /* Tebal font */
+}
+
+.qty-container button {
+    all: unset; /* Hapus semua gaya bawaan browser */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px; /* Lebar tombol */
+    height: 30px; /* Tinggi tombol */
+    font-size: 16px; /* Ukuran font */
+    font-weight: bold; /* Tebal font */
+    background-color: #f9f9f9; /* Warna latar tombol */
+    border: 1px solid #ddd; /* Border tombol */
+    border-radius: 4px; /* Sudut membulat */
+    cursor: pointer; /* Pointer saat hover */
+    transition: all 0.3s ease; /* Efek transisi */
+}
+
+.qty-container button:hover {
+    background-color: #f0f0f0; /* Gaya saat hover */
+    transform: scale(1.1); /* Zoom sedikit */
+}
+
+.qty-container button:focus {
+    outline: none; /* Hapus garis fokus */
+    box-shadow: none; /* Hapus shadow fokus */
+}
+
+.qty-container button.qty-button:active {
+    transform: scale(0.9); /* Efek kecil saat tombol ditekan */
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.error-message a {
+    color: #4CAF50;
+    text-decoration: underline;
+}
+
+.error-message a:hover {
+    text-decoration: none;
 }

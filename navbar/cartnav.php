@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="images/yplogo.png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         /* Navbar gradient background for welcome text */
         .navbar-top {
@@ -81,6 +83,13 @@
             color: black;
             margin-left: 30px;
             cursor: pointer;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        /* Hover effects for icons */
+        .navbar-icons i:hover {
+            color: #4682B4; /* Ubah warna saat hover */
+            transform: scale(1.2); /* Perbesar ikon */
         }
     </style>
 </head>
@@ -100,7 +109,7 @@
             </a>
             <!-- Home Icon -->
             <a href="cart.php" class="nav-link d-flex align-items-center">
-                <i class="bi bi-cart3 me-1"></i> Shopping Cart
+                <i class="bi bi-cart3 me-1"></i> Keranjang
             </a>
         </div>
 
@@ -112,8 +121,8 @@
 
         <!-- Right Icons (Cart and Profile) -->
         <div class="navbar-icons d-flex align-items-center">
-            <i class="bi bi-cart3"></i>
-            <i class="bi bi-person-circle"></i>
+            <a href="cart.php"><i class="bi bi-cart3"></i></a>
+            <a href="profile.php"><i class="bi bi-person-circle"></i></a>
         </div>
     </nav>
 

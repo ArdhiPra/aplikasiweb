@@ -46,13 +46,13 @@
         <div class="category-title">Category</div>
             <div class="icon-container">
             <div class="icon-item">
-                <a href="category/pre-build.html">
+                <a href="pre-build.php">
                     <img src="images/prepcicon.svg" alt="Pre-built">
                     <p>Pre-built</p>
                 </a>
             </div>
             <div class="icon-item">
-                <a href="category/vga.html">
+                <a href="vga.php">
                     <img src="images/vgaicon.svg" alt="VGA">
                     <p>VGA</p>
                 </a>
@@ -64,43 +64,43 @@
                 </a>
             </div>
             <div class="icon-item">
-                <a href="category/motherboard.html">
+                <a href="motherboard.php">
                     <img src="images/mbicon.svg" alt="Motherboard">
                     <p>Motherboard</p>
                 </a>
             </div>
             <div class="icon-item">
-                <a href="category/hdd.html">
+                <a href="hdd.php">
                     <img src="images/hddicon.svg" alt="HDD">
                     <p>HDD</p>
                 </a>
             </div>
             <div class="icon-item">
-                <a href="category/ssd.html">
+                <a href="ssd.php">
                     <img src="images/ssdicon.svg" alt="SSD">
                     <p>SSD</p>
                 </a>
             </div>
             <div class="icon-item">
-                <a href="category/ram.html">
+                <a href="ram.php">
                     <img src="images/ramicon.svg" alt="RAM">
                     <p>RAM</p>
                 </a>
             </div>
             <div class="icon-item">
-                <a href="category/psu.html">
+                <a href="psu.php">
                     <img src="images/psuicon.svg" alt="PSU">
                     <p>PSU</p>
                 </a>
             </div>
             <div class="icon-item">
-                <a href="category/casing.html">
+                <a href="casing.php">
                     <img src="images/caseicon.svg" alt="Casing">
                     <p>Casing</p>
                 </a>
             </div>
             <div class="icon-item">
-                <a href="category/monitor.html">
+                <a href="monitor.php">
                     <img src="images/monitoricon.svg" alt="Monitor">
                     <p>Monitor</p>
                 </a>
@@ -117,9 +117,9 @@
             <div class="col-6 col-md-3 mb-3">
                 <h5 class="footer-title">Tentang Kami</h5>
                 <ul class="list-unstyled">
-                    <li><a href="kontak.html">Tentang Kami</a></li>
-                    <li><a href="#tentang">Kebijakan Privasi</a></li>
-                    <li><a href="galeri.html">Syarat dan Ketentuan</a></li>
+                    <li><a href="tentang.php">Tentang Kami</a></li>
+                    <li><a href="kebijakan.php">Kebijakan Privasi</a></li>
+                    <li><a href="syarat.php">Syarat dan Ketentuan</a></li>
                 </ul>
             </div>
             
@@ -139,7 +139,7 @@
             <div class="col-6 col-md-3 mb-3">
                 <h5 class="footer-title">Media Sosial</h5>
                 <div class="d-flex mt-4">
-                    <a href="https://www.instagram.com/dh_oh_eb/?utm_source=ig_web_button_share_sheet" target="_blank" class="me-2">
+                    <a href="" target="_blank" class="me-2">
                         <img src="images/iglogo.png" alt="Instagram" class="social-icon">
                     </a>
                     <a href="https://www.tiktok.com/@yourprofile" target="_blank" class="me-2">

@@ -82,6 +82,11 @@
             margin-left: 30px;
             cursor: pointer;
         }
+
+        .navbar-icons i:hover {
+            color: #4682B4; /* Ubah warna saat hover */
+            transform: scale(1.2); /* Perbesar ikon */
+        }
     </style>
 </head>
 <body>
@@ -100,21 +105,14 @@
             </a>
             <!-- Home Icon -->
             <a href="home.php" class="nav-link d-flex align-items-center">
-                <i class="bi bi-house-door-fill me-1"></i> Home
+            <i class="bi bi-hdd me-1"></i> HDD
             </a>
         </div>
-
-        <!-- Search bar - centered in the navbar -->
-        <div class="search-bar position-relative">
-            <span class="search-icon bi bi-search"></span>
-            <input type="text" class="form-control search-input" placeholder="Search...">
-        </div>
-
         <!-- Right Icons (Cart and Profile) -->
         <div class="navbar-icons d-flex align-items-center">
-            <i class="bi bi-cart3"></i>
-            <i class="bi bi-person-circle"></i>
-        </div>
+            <a href="cart.php"><i class="bi bi-cart3"></i>
+            <a href="profile.php"><i class="bi bi-person-circle"></i></a>
+            </div>
     </nav>
 
     <!-- Bootstrap Icons -->

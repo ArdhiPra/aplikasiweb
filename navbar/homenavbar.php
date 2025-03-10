@@ -23,6 +23,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap;
         }
 
         /* Logo styling */
@@ -51,11 +52,9 @@
         /* Search bar styling */
         .search-bar {
             position: relative;
-            width: 75%;
-            max-width: 250px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
+            flex: 1; /* Membuat search bar memanfaatkan ruang yang ada */
+            max-width: 400px; /* Ukuran maksimal */
+            margin: 10px auto; /* Menyelaraskan di tengah */
         }
 
         .search-input {
@@ -82,8 +81,13 @@
             margin-left: 30px;
             cursor: pointer;
         }
+
+        .navbar-icons i:hover {
+            color: #4682B4; /* Ubah warna saat hover */
+            transform: scale(1.2); /* Perbesar ikon */
+        }
     </style> 
-    </head>
+</head>
 <body>
 
     <!-- Top Navbar -->
@@ -105,15 +109,15 @@
         </div>
 
         <!-- Search bar - centered in the navbar -->
-        <div class="search-bar position-relative">
+        <div class="search-bar">
             <span class="search-icon bi bi-search"></span>
             <input type="text" class="form-control search-input" placeholder="Search...">
         </div>
 
         <!-- Right Icons (Cart and Profile) -->
         <div class="navbar-icons d-flex align-items-center">
-        <a href="cart.php"><i class="bi bi-cart3"></i></a>
-            <i class="bi bi-person-circle"></i>
+            <a href="cart.php"><i class="bi bi-cart3"></i></a>
+            <a href="profile.php"><i class="bi bi-person-circle"></i></a>
         </div>
     </nav>
 
